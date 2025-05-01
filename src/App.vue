@@ -1,9 +1,19 @@
 <template>
-  <TheHeader
-    v-show="showHeader"
-  />
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js Apps"/>
+  <TheHeader v-show="showHeader"/>
+
+  <div v-show="showName"> 
+    Nome: {{firstName}}
+    Sobrenome: {{ lastName }}
+  </div>
+  <div v-if="acessLevel === 'admin'">Administrador</div>
+  <div v-else-if="acessLevel === 'marketing'">Marketing</div>
+  <div v-else>Usuário</div>
+
+
+
+  <img alt="Vue logo" 
+  src="./assets/logo.png">
+  <HelloWorld msg="To Do List App"/>
 </template>
 
 <script>
@@ -18,7 +28,11 @@ export default {
   }, 
   data() {
     return {
-      showHeader: false
+      showHeader: true,
+      firstName: 'Lucas',
+      lastName: 'Borges',
+      showName: false,
+      acessLevel: 'admin'
     }
   }
 }
