@@ -8,13 +8,17 @@
   <div v-else-if="acessLevel === 'marketing'">Marketing</div>
   <div v-else>Usuário</div>
   <img 
+
     v-bind:src="imgSrc" 
-    v-bind:alt="imgAlt">
+    v-bind:alt="imgAlt"> 
   <div 
     v-for="(obj, index) in todos"
     v-bind:key="obj.id"
     class="todos-item"
   >
+    <img v-if="obj.imgCardSrc"
+    :src="obj.imgCardSrc">
+
     {{ index }} - {{ obj.title }}
   {{ obj.title }}
   </div>
@@ -43,16 +47,19 @@ export default {
       imgAlt: 'Foto do usuário',
       todos: [
   {
+    
     "userId": 1,
     "id": 1,
     "title": "delectus aut autem",
-    "completed": false
+    "completed": false,
+    "imgCardSrc": 'https://placehold.co/550x100'
   },
   {
     "userId": 1,
     "id": 2,
     "title": "quis ut nam facilis et officia qui",
-    "completed": false
+    "completed": false,
+    "imgCardSrc": 'https://placehold.co/550x100'
   },
   {
     "userId": 1,
